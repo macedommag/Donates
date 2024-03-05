@@ -2,8 +2,10 @@
 
 <h1>Todas as Instituições</h1>
 
-<ul>
-  <% @institutions.each do |institution| %>
-    <li><%= link_to institution.name, institution_path(institution) %></li>
-  <% end %>
-</ul>
+<% @institutions.each do |institution| %>
+  <div>
+    <h2><%= institution.name %></h2>
+    <p><%= institution.cnpj %></p>
+    <!-- Adicione outros campos que deseja exibir aqui -->
+  </div>
+<% end %>

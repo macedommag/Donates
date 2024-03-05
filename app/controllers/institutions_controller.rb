@@ -1,7 +1,8 @@
 class InstitutionsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user # Use authenticate_user! ao invés de authenticate_user
   before_action :authorize_admin, only: [:create]
   before_action :authenticate_token
+
 
   # outros métodos aqui...
   def index
