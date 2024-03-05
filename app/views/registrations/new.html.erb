@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Minha Aplicação</title>
+  <!-- Adicione links para arquivos CSS e scripts JS aqui, se necessário -->
+</head>
+<body>
+  <header>
+    <!-- Cabeçalho da página -->
+    <h1>Cadastro</h1>
+    <!-- Adicione qualquer elemento de navegação aqui, se necessário -->
+  </header>
+  <main>
+    <!-- Conteúdo principal da página -->
+    <section id="signup-form">
+      <!-- Formulário de cadastro -->
+      <h2>Preencha os campos abaixo para se cadastrar:</h2>
+      <%= form_for @donor, url: signup_path do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, required: true %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, required: true %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, required: true %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Cadastrar' %>
+        </div>
+      <% end %>
+    </section>
+  </main>
+  <footer>
+    <!-- Rodapé da página -->
+    <p>&copy; <%= Time.now.year %> Minha Aplicação. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

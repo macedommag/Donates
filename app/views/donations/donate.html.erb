@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doações - Minha Instituição</title>
+  <!-- Adicione links para arquivos CSS e scripts JS aqui, se necessário -->
+</head>
+<body>
+  <header>
+    <!-- Cabeçalho da página -->
+    <h1>Doações para Minha Instituição</h1>
+    <!-- Adicione qualquer elemento de navegação aqui, se necessário -->
+  </header>
+  <main>
+    <!-- Conteúdo principal da página -->
+    <section id="donation-form">
+      <!-- Formulário de doação -->
+      <h2>Faça uma doação agora!</h2>
+      <%= form_for [@institution, @donation] do |f| %>
+        <!-- Campo oculto para o ID da instituição -->
+        <%= f.hidden_field :institution_id, value: @institution.id %>
+        <label for="amount">Valor da Doação:</label>
+        <input type="number" id="amount" name="amount" step="0.01" min="1" required>
+        <!-- Adicione o token de autenticidade CSRF -->
+        <%= csrf_meta_tags %>
+        <button type="submit">Doar Agora</button>
+      <% end %>
+    </section>
+    <!-- Adicione o link "Fazer doação" para a instituição -->
+    <%= link_to 'Fazer doação', donate_path(@institution), class: 'btn btn-primary' %>
+  </main>
+  <footer>
+    <!-- Rodapé da página -->
+    <p>&copy; 2024 Minha Instituição. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
